@@ -1,0 +1,17 @@
+version: "3.2"
+
+services:
+  dev:
+    container_name: appchain-gameland
+    image: paritytech/ci-linux:974ba3ac-20201006
+    working_dir: /var/www/appchain-gameland
+    ports:
+      - "9944:9944"
+    environment:
+      - CARGO_HOME=/var/www/appchain-gameland/.cargo
+    volumes:
+      - .:/var/www/appchain-gameland
+      - type: bind
+        source: ./.local
+        target: /root/.local
+    command: bash -c "cargo build --release && ./target/release/appchain-gameland --dev --ws-external"
