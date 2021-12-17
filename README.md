@@ -13,7 +13,7 @@ www.gameland.network
 ## High-Level Concept (Abstract)
 Gameland as a Gamefi platform aims to help users experience high-end games at the lowest price, provide users a rental platform with integrating experience and revenue, and lower the boundary between players and games。
 This multi-dimensional enriches the blockchain game itself and brings new upgrades to the blockchain game
-The initial and core Gameland product is a protocol layer that enables NFTs GRC-1155(a single transaction to represent multiple tokens at once, similar to ERC1155) and GIP-2615(Non-Fungible Token with mortgage and rental functions, similar to EIP-2615)
+The initial and core Gameland product is a protocol layer that enables NFTs ERC-1155(a single transaction to represent multiple tokens at once) and EIP-2615(Non-Fungible Token with mortgage and rental functions)
 
 ## Our Vision 
 The Gameland vision is to bring affordable game experience with an NFT for trustless, secure, and quick rentability in cross-platform way by gathering all the rentable items like user accounts or tools from different online gaming platforms and list them in order for people who are interested in renting one or some of them for either fun game experience or profit. 
