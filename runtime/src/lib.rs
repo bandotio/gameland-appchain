@@ -56,8 +56,9 @@ use sp_runtime::{
 };
 use static_assertions::const_assert;
 
-/// Import the template pallet.
 pub use pallet_template;
+//pub use pallet_ormlnft;
+pub use pallet_gameland;
 
 /// An index to a block.
 pub type BlockNumber = u32;
@@ -608,8 +609,17 @@ impl pallet_sudo::Config for Runtime {
 	type Call = Call;
 }
 
-/// Configure the pallet-template in pallets/template.
 impl pallet_template::Config for Runtime {
+	type Event = Event;
+}
+
+// impl pallet_ormlnft::Config for Runtime {
+// 	type ClassId = u32;
+// 	type TokenId = u64;
+// 	type ClassData = Vec<u8>;
+// 	type TokenData = Vec<u8>;
+// }
+impl pallet_gameland::Config for Runtime {
 	type Event = Event;
 }
 
@@ -639,8 +649,11 @@ construct_runtime!(
 		Beefy: pallet_beefy::{Pallet, Config<T>, Storage},
 		MmrLeaf: pallet_beefy_mmr::{Pallet, Storage},
 		Sudo: pallet_sudo::{Pallet, Call, Config<T>, Storage, Event<T>},
-		// Include the custom logic from the pallet-template in the runtime.
+
 		TemplateModule: pallet_template::{Pallet, Call, Storage, Event<T>},
+		//OrmlNFT: pallet_ormlnft::{Pallet, Storage, Config<T>},
+		GamelandModule: pallet_gameland::{Pallet, Call, Storage, Event<T>},
+		
 	}
 );
 
