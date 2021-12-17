@@ -23,13 +23,14 @@
 
 use codec::{Decode, Encode};
 use frame_support::{ensure, pallet_prelude::*, Parameter};
+use scale_info::TypeInfo;
 use sp_runtime::{
 	traits::{AtLeast32BitUnsigned, CheckedAdd, CheckedSub, MaybeSerializeDeserialize, Member, One, Zero},
 	DispatchError, DispatchResult, RuntimeDebug,
 };
 use sp_std::vec::Vec;
 
-#[derive(Encode, Decode, Clone, Eq, PartialEq, RuntimeDebug)]
+#[derive(Encode, Decode, Clone, Eq, PartialEq, RuntimeDebug, TypeInfo)]
 pub struct ClassInfo<TokenId, AccountId, Data> {
 	/// Class metadata
 	pub metadata: Vec<u8>,
@@ -43,7 +44,7 @@ pub struct ClassInfo<TokenId, AccountId, Data> {
 }
 
 /// Token info
-#[derive(Encode, Decode, Clone, Eq, PartialEq, RuntimeDebug)]
+#[derive(Encode, Decode, Clone, Eq, PartialEq, RuntimeDebug, TypeInfo)]
 pub struct TokenInfo<TokenId, Data> {
 	/// Token metadata
 	pub metadata: Vec<u8>,
@@ -55,7 +56,7 @@ pub struct TokenInfo<TokenId, Data> {
 }
 
 /// Account Token
-#[derive(Encode, Decode, Copy, Clone, Eq, PartialEq, RuntimeDebug)]
+#[derive(Encode, Decode, Copy, Clone, Eq, PartialEq, RuntimeDebug, TypeInfo)]
 pub struct AccountToken<TokenId> {
 	/// account token number.
 	#[codec(compact)]
@@ -88,9 +89,10 @@ where
 	}
 }
 
-pub use module::*;
+pub use pallet::*;
+
 #[frame_support::pallet]
-pub mod module {
+pub mod pallet {
 	use super::*;
 
 	#[pallet::config]
