@@ -57,7 +57,7 @@ use sp_runtime::{
 use static_assertions::const_assert;
 
 pub use pallet_template;
-//pub use pallet_ormlnft;
+pub use pallet_ormlnft;
 pub use pallet_gameland;
 
 /// An index to a block.
@@ -613,14 +613,18 @@ impl pallet_template::Config for Runtime {
 	type Event = Event;
 }
 
-// impl pallet_ormlnft::Config for Runtime {
-// 	type ClassId = u32;
-// 	type TokenId = u64;
-// 	type ClassData = Vec<u8>;
-// 	type TokenData = Vec<u8>;
-// }
+impl pallet_ormlnft::Config for Runtime {
+	type ClassId = u32;
+	type TokenId = u64;
+	type ClassData = Vec<u8>;
+	type TokenData = Vec<u8>;
+}
+parameter_types! {
+	//pub const GamelandAccount: AccountId = AccountId::from([0u8; 32]);
+}
 impl pallet_gameland::Config for Runtime {
 	type Event = Event;
+	//type GamelandAccount = GamelandAccount;
 }
 
 // Create the runtime by composing the FRAME pallets that were previously configured.
@@ -651,7 +655,7 @@ construct_runtime!(
 		Sudo: pallet_sudo::{Pallet, Call, Config<T>, Storage, Event<T>},
 
 		TemplateModule: pallet_template::{Pallet, Call, Storage, Event<T>},
-		//OrmlNFT: pallet_ormlnft::{Pallet, Storage, Config<T>},
+		OrmlNFT: pallet_ormlnft::{Pallet, Storage, Config<T>},
 		GamelandModule: pallet_gameland::{Pallet, Call, Storage, Event<T>},
 		
 	}

@@ -231,5 +231,6 @@ fn testnet_genesis(
 			premined_amount: 1024 * DOLLARS,
 		},
 		octopus_lpos: OctopusLposConfig { era_payout: 2 * DOLLARS, ..Default::default() },
+		orml_nft: Default::default(),
 	}
 }

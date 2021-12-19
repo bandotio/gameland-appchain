@@ -15,8 +15,8 @@ codec = {package = "parity-scale-codec", version = "2.0.0", default-features = f
 hex-literal = {version = "0.3.1", optional = true}
 scale-info = {version = "1.0", default-features = false, features = ["derive"]}
 
-#pallet-ormlnft = {path = "../pallets/orml_nft", default-features = false}
 pallet-gameland = {path = "../pallets/gameland", default-features = false}
+pallet-ormlnft = {path = "../pallets/orml-nft", default-features = false}
 pallet-template = {path = "../pallets/template", default-features = false}
 
 frame-benchmarking = {git = "https://github.com/paritytech/substrate.git", branch = "polkadot-v0.9.12", default-features = false, optional = true}
@@ -89,7 +89,8 @@ std = [
   'pallet-grandpa/std',
   'pallet-randomness-collective-flip/std',
   'pallet-sudo/std',
-  'pallet-template/std', #'pallet-ormlnft/std',
+  'pallet-template/std',
+  'pallet-ormlnft/std',
   'pallet-gameland/std',
   'pallet-timestamp/std',
   'pallet-transaction-payment-rpc-runtime-api/std',
